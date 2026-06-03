@@ -189,7 +189,7 @@ This project is distributed under the MIT License.
 
 # Authors
 
-Praveen T
+Praveen T,
 Shashank P
 
 Indian Institute of Technology Delhi (IIT Delhi)
