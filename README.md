@@ -76,6 +76,8 @@ Generate Portfolio Weights
         ▼
 Execute Rebalance
 
+```
+
 # Repository Structure
 
 ```text
