@@ -206,4 +206,4 @@ Shashank P
 
 Indian Institute of Technology Delhi (IIT Delhi)
 
-Quantitative Finance • Algorithmic Trading • Machine Learning
+Quantitative Finance • Algorithmic Trading • 
