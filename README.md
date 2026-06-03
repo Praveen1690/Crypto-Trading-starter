@@ -31,38 +31,50 @@ Portfolio allocation is determined as follows:
 This approach allows the portfolio to remain invested during favorable market conditions while preserving capital during broad market weakness.
 
 ---
+## Methodology
 
-# Methodology
+The strategy uses a **200-period Exponential Moving Average (EMA200)** as a long-term trend filter on 4-hour candles.
 
-The trend indicator is computed using a 200-period Exponential Moving Average:
+### Trend Detection
 
-[
-EMA_t = \alpha P_t + (1-\alpha)EMA_{t-1}
-]
+For each asset:
 
-where
+- **Bullish Trend:** Current Price > EMA200
+- **Bearish Trend:** Current Price ≤ EMA200
 
-[
-\alpha = \frac{2}{N+1}
-]
-
-and
-
-[
-N = 200
-]
-
-Trading signal:
-
-[
-Signal_t=
-\begin{cases}
-Bullish,& Price_t > EMA_t \
-Bearish,& Price_t \le EMA_t
-\end{cases}
-]
+The EMA200 helps identify the prevailing market direction while filtering out short-term noise.
 
 ---
+
+### Portfolio Allocation Logic
+
+The portfolio dynamically reallocates capital based on the trend state of ETH and BNB.
+
+| ETH Trend | BNB Trend | Allocation |
+|------------|------------|------------|
+| Bullish | Bullish | 50% ETH + 50% BNB |
+| Bullish | Bearish | 100% ETH |
+| Bearish | Bullish | 100% BNB |
+| Bearish | Bearish | 100% USDT |
+
+---
+
+### Strategy Workflow
+
+```text
+Fetch 4H Market Data
+        │
+        ▼
+Calculate EMA200
+        │
+        ▼
+Determine Trend State
+        │
+        ▼
+Generate Portfolio Weights
+        │
+        ▼
+Execute Rebalance
 
 # Repository Structure
 
